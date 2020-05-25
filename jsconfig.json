@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./*"
+      ],
+      "core": [
+        "src/core"
+      ],
+      "core/*": [
+        "src/core/*"
+      ],
+      "container": [
+        "src/container"
+      ],
+      "container/*": [
+        "src/container/*"
+      ],
+      "components": [
+        "src/core/components"
+      ],
+      "components/*": [
+        "src/core/components/*"
+      ],
+      "constants": [
+        "src/core/components"
+      ],
+      "constants/*": [
+        "src/core/components/*"
+      ],
+      "state": [
+        "src/state"
+      ],
+      "state/*": [
+        "src/state/*"
+      ],
+    }
+  }
+}
