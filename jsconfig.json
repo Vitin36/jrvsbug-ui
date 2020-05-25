@@ -35,6 +35,12 @@
       "state/*": [
         "src/state/*"
       ],
+      "store": [
+        "src/store"
+      ],
+      "store/*": [
+        "src/store/*"
+      ],
     }
   }
 }

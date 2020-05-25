@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const InformationStyled = styled.div`
+const BigMessageStyled = styled.div`
     width: 100vw;
     background: rgba(0,0,0, 0.75);
     position: fixed;
@@ -13,7 +13,7 @@ const InformationStyled = styled.div`
     opacity: ${({ visible }) => visible ? 1 : 0};
 `
 
-const InformationMessage = styled.h1`
+const MessageContent = styled.h1`
     position: absolute;
     top: 50%;
     left: 50%;
@@ -26,14 +26,14 @@ const InformationMessage = styled.h1`
     text-align: center;
 `
 
-const Information = ({ visible, color, message }) => {
+const BigMessage = ({ visible, color, message }) => {
     return (
-        <InformationStyled visible={visible}  >
-            <InformationMessage color={color} >
+        <BigMessageStyled visible={visible}  >
+            <MessageContent color={color} >
                 {message}
-            </InformationMessage>
-        </InformationStyled>
+            </MessageContent>
+        </BigMessageStyled>
     )
 }
 
-export default Information
+export default BigMessage
