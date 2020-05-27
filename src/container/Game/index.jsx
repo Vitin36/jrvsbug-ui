@@ -53,7 +53,7 @@ const Game = () => {
         : window.alert(`You need to write your name`)
 
     window.addEventListener('storage', ({ key, newValue }) => {
-        if (key === "gameId" && key) {
+        if (key === "gameId") {
             setGameId(newValue)
         }
     })
