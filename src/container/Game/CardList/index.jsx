@@ -1,5 +1,5 @@
 import React from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from 'react-redux'
 import styled from "styled-components"
 import actions from 'store/card/action'
 
@@ -15,16 +15,32 @@ const CardListStyled = styled.div`
     min-height: 100%;
 `
 
-const CardList = ({ cards = [], disabled }) => {
+const CardList = () => {
+    const { currentPlayer, canMakeMoviment } = useSelector(store => store.game)
+    const { deck } = currentPlayer
+
     const dispatch = useDispatch()
     const handleSelect = card => {
         dispatch(actions.setSelectedCard(card))
     }
     return (
-        <CardListStyled disabled={disabled}>
-            {cards.map((card, key) => (
-                <Card card={card} key={key} disabled={disabled} onClick={() => { handleSelect(card) }} />
-            ))}
+        <CardListStyled>
+            {deck.map((card, key) => {
+                const disabled = !canMakeMoviment || card.manaCost > currentPlayer.mana
+                return (
+                    <Card
+                        card={card}
+                        key={key}
+                        disabled={disabled}
+                        onClick={() => {
+                            !canMakeMoviment ?
+                                window.alert('You cant use any card now')
+                                : card.manaCost > currentPlayer.mana ?
+                                    window.alert('You dont have enougth mana to this card')
+                                    : handleSelect(card)
+                        }} />
+                )
+            })}
         </CardListStyled>
     )
 }

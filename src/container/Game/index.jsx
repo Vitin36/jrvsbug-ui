@@ -35,8 +35,8 @@ const Name = styled.input`
 `
 
 const Game = () => {
-    const { currentPlayer, canMakeMoviment, started, ended, game } = useSelector(store => store.game)
-    const { name, deck } = currentPlayer
+    const { currentPlayer, started, ended, game } = useSelector(store => store.game)
+    const { name } = currentPlayer
     const [player1, player2] = game.players
     const dispatch = useDispatch()
 
@@ -66,7 +66,7 @@ const Game = () => {
                 <div>
                     <Header player1={player1} player2={player2} />
                     <Main>
-                        <CardList cards={deck} disabled={!canMakeMoviment} />
+                        <CardList />
                     </Main>
                     <Footer />
                 </div>
