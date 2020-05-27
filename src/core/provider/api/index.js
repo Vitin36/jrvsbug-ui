@@ -1,8 +1,9 @@
 import axios from 'axios'
 
+const { baseURL } = global.ENVIRONMENT
 
 const config = {
-    baseURL: 'http://localhost:8000/',
+    baseURL: baseURL || 'http://localhost:8000/',
 }
 
 const BaseApi = axios.create(config)
