@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: {
     app: [
+      'regenerator-runtime/runtime',
       './src/index.js',
     ],
   },
@@ -64,7 +65,6 @@ module.exports = {
       },
     },
   },
-
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
