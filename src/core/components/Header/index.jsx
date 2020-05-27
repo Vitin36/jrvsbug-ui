@@ -57,7 +57,7 @@ export const SquareText = styled.div`
     font-size: 3em;
 `
 
-export const Square = ({ text }) => {
+export const Square = ({ text = 'VS' }) => {
     return (
         <SquareVS>
             <SquareBlock />

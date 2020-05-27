@@ -10,7 +10,7 @@ const CardHeaderStyled = styled.div`
     user-select: none;
 `
 
-const CardHeader = ({ name }) => {
+const CardHeader = ({ name = '' }) => {
     return (
         <CardHeaderStyled>
             <span>{name}</span>

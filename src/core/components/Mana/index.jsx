@@ -11,7 +11,7 @@ const BlueBar = styled.div`
     background: blue;
 `
 
-const Mana = ({ count }) => {
+const Mana = ({ count = 0 }) => {
     return (
         <GreyBar>
             <BlueBar count={count} />

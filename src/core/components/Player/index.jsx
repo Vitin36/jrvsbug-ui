@@ -20,7 +20,7 @@ const PlayerName = styled.p`
     ${({ right }) => right ? 'margin-left: 0.5em ' : null}
 `
 
-const PlayerRight = ({ name, life, mana }) => {
+const PlayerRight = ({ name = '', life = 0, mana = 0 }) => {
     return (
         <PlayerStyled>
             <PlayerName right >
@@ -34,7 +34,7 @@ const PlayerRight = ({ name, life, mana }) => {
     )
 }
 
-const PlayerLeft = ({ name, life, mana }) => {
+const PlayerLeft = ({ name = '', life = 0, mana = 0 }) => {
     return (
         <PlayerStyled>
             <div>
@@ -48,7 +48,7 @@ const PlayerLeft = ({ name, life, mana }) => {
     )
 }
 
-const Player = ({ player, left, right }) => {
+const Player = ({ player = {}, left = false, right = false }) => {
     const { name, life, mana } = player
     return (
         <div>

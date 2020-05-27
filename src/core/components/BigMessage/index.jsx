@@ -26,7 +26,7 @@ const MessageContent = styled.h1`
     text-align: center;
 `
 
-const BigMessage = ({ visible, color, message }) => {
+const BigMessage = ({ visible = false, color = 'white', message = '' }) => {
     return (
         <BigMessageStyled visible={visible}  >
             <MessageContent color={color} >

@@ -11,6 +11,12 @@
       "core/*": [
         "src/core/*"
       ],
+      "provider": [
+        "src/core/provider"
+      ],
+      "provider/*": [
+        "src/core/provider/*"
+      ],
       "container": [
         "src/container"
       ],
@@ -24,10 +30,10 @@
         "src/core/components/*"
       ],
       "constants": [
-        "src/core/components"
+        "src/core/constants"
       ],
       "constants/*": [
-        "src/core/components/*"
+        "src/core/constants/*"
       ],
       "state": [
         "src/state"

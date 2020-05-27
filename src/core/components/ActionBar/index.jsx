@@ -43,7 +43,7 @@ const SelectedCard = styled.div`
     }
 `
 
-const ActionBar = ({ selectedCard = {}, disabled }) => {
+const ActionBar = ({ selectedCard = {}, disabled = false, onUse = () => { }, onPass = () => { } }) => {
     const { name } = selectedCard
 
     return (
@@ -52,8 +52,8 @@ const ActionBar = ({ selectedCard = {}, disabled }) => {
                 <h2>Selected Card</h2>
                 <h1>{name || '-'}</h1>
             </SelectedCard>
-            <RoundedButton text="Use Card" color="green" size="big" />
-            <RoundedButton text="Pass Round" color="blue" size="big" />
+            <RoundedButton text="Use Card" color="green" size="big" onClick={onUse} />
+            <RoundedButton text="Pass Round" color="blue" size="big" onClick={onPass} />
         </ActionBarStyled>
     )
 }

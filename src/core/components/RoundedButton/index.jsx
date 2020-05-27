@@ -14,7 +14,9 @@ const RoundedButtonStyled = styled.button`
     border-radius: 50%;
     border: 1px solid black;
     background: ${({ color }) => color ? color : 'white'};
+    font-size: ${({ fontSize }) => fontSize ? fontSize : '1em'};
     margin: 1.5em;
+    outline: none;
 
     & :hover{
         cursor: pointer;
@@ -23,9 +25,14 @@ const RoundedButtonStyled = styled.button`
     }
 `
 
-const RoundedButton = ({ text, color, size }) => {
+const RoundedButton = ({ onClick = () => { }, text, fontSize, color = 'white', size = 'medium' }) => {
     return (
-        <RoundedButtonStyled color={color} size={size} >
+        <RoundedButtonStyled
+            color={color}
+            size={size}
+            fontSize={fontSize}
+            onClick={onClick}
+        >
             {text}
         </RoundedButtonStyled>
     )

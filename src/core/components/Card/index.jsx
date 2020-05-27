@@ -25,13 +25,13 @@ const CardStyled = styled.div`
     }
 `
 
-const Card = ({ card, disabled, selected }) => {
-    const { name, description, actions } = card
+const Card = ({ card = {}, disabled = false, selected = false, onClick = () => { } }) => {
+    const { name, description, manaCost, manaDamage, manaRecover, lifeDamage } = card
     return (
-        <CardStyled disabled={disabled} selected={selected} >
+        <CardStyled disabled={disabled} selected={selected} onClick={onClick}>
             <CardHeader name={name} />
             <CardBody description={description} />
-            <CardFooter actions={actions} />
+            <CardFooter manaCost={manaCost} manaDamage={manaDamage} manaRecover={manaRecover} lifeDamage={lifeDamage} />
         </CardStyled>
     )
 }

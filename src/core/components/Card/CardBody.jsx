@@ -11,7 +11,7 @@ const CardBodyStyled = styled.div`
     max-width: 100%;
 `
 
-const CardBody = ({ description }) => {
+const CardBody = ({ description = '' }) => {
     return (
         <CardBodyStyled>
             <p>{description}</p>

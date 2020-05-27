@@ -1,5 +1,7 @@
 import React from "react"
+import { useDispatch } from "react-redux"
 import styled from "styled-components"
+import actions from 'store/card/action'
 
 import Card from "components/Card"
 
@@ -14,13 +16,14 @@ const CardListStyled = styled.div`
 `
 
 const CardList = ({ cards = [], disabled }) => {
-    const [card1] = cards
+    const dispatch = useDispatch()
+    const handleSelect = card => {
+        dispatch(actions.setSelectedCard(card))
+    }
     return (
         <CardListStyled disabled={disabled}>
-        <Card card={card1} key="oi" selected />
-        <Card card={card1} key="oi2" disabled />
             {cards.map((card, key) => (
-                <Card card={card} key={key} disabled={disabled} />
+                <Card card={card} key={key} disabled={disabled} onClick={() => { handleSelect(card) }} />
             ))}
         </CardListStyled>
     )

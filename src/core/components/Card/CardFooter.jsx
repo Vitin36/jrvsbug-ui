@@ -16,7 +16,7 @@ const CardFooterStyled = styled.div`
     }
 `
 
-const Info = ({ name, value }) => {
+const Info = ({ name = '', value = '' }) => {
     return (
         <div>
             <p>{name} : {value}</p>
@@ -24,15 +24,13 @@ const Info = ({ name, value }) => {
     )
 }
 
-const CardFooter = ({ actions }) => {
-    const { usedMana, recoveredMana, recoveredLife, manaDemage, lifeDemage } = actions
+const CardFooter = ({ manaCost, manaDamage, manaRecover, lifeDamage }) => {
     return (
         <CardFooterStyled>
-            <Info name="Mana cost" value={usedMana} />
-            <Info name="Mana to Recover" value={recoveredMana} />
-            <Info name="Life to Recover" value={recoveredLife} />
-            <Info name="Mana Demage" value={manaDemage} />
-            <Info name="Life Demage" value={lifeDemage} />
+            <Info name="Mana cost" value={manaCost} />
+            <Info name="Mana to Recover" value={manaRecover} />
+            <Info name="Mana Demage" value={manaDamage} />
+            <Info name="Life Demage" value={lifeDamage} />
         </CardFooterStyled>
     )
 }

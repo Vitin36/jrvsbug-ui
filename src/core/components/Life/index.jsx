@@ -12,7 +12,7 @@ const GreenBar = styled.div`
     position: relative;
 `
 
-const Life = ({ count }) => {
+const Life = ({ count = 0 }) => {
     return (
         <GreyBar>
             <GreenBar count={count} />
