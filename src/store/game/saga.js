@@ -1,9 +1,9 @@
-import { put, takeLatest, takeEvery, delay, all, call, select } from 'redux-saga/effects'
+import { put, takeEvery, delay, all, call, select } from 'redux-saga/effects'
 import { actions, types } from './action'
 import { actions as informationActions } from 'store/information/action'
 import { actions as cardActions } from 'store/card/action'
 import GameProvider from "provider/game"
-import { gameFinished } from 'interactor/game'
+import { gameFinished, setGameInStorage, clearGameInStorage } from 'interactor/game'
 
 export function* startGame({ name }) {
     try {
@@ -46,9 +46,26 @@ export function* cpuMovimentFinished({ game }) {
     }
 }
 
+export function* findGame({ gameId }) {
+    try {
+        const { data } = yield call(GameProvider.getGame, gameId)
+        const { gameStatus } = data
+        if (gameStatus == "PROGRESS") {
+            yield put(actions.updateGame(data))
+        }
+        else{
+            yield call(clearGameInStorage)
+        }
+    }
+    catch (error) {
+        window.alert(error)
+    }
+}
+
 export function* startedGame({ game }) {
     const { game: { id } } = yield select((state) => state.game)
     if (!id) {
+        yield call(setGameInStorage, game.id)
         yield put(actions.updateGame(game))
         yield put(informationActions.show("Your Turn"))
     }
@@ -57,6 +74,7 @@ export function* startedGame({ game }) {
 export function* resetGame() {
     yield put(informationActions.resetInformation())
     yield put(cardActions.resetCard())
+    yield call(clearGameInStorage)
 }
 
 export default function* root() {
@@ -67,5 +85,6 @@ export default function* root() {
         takeEvery(types.GAME_MESSAGE_STARTED_GAME, startedGame),
         takeEvery(types.GAME_MESSAGE_PLAYER_MOVIMENT_FINISHED, playerMovimentFinished),
         takeEvery(types.GAME_MESSAGE_CPU_MOVIMENT_FINISHED, cpuMovimentFinished),
+        takeEvery(types.GAME_FIND_GAME, findGame)
     ])
 }

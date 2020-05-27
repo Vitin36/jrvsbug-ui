@@ -8,6 +8,9 @@ const GameProvider = {
         return BaseApi.put(`/command/game/movement/${gameId}/player/${playerId}`, null, {
             params: { type, cardId }
         })
+    },
+    getGame: (gameId) => {
+        return BaseApi.get(`/command/game/${gameId}`)
     }
 }
 

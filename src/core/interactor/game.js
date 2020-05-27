@@ -15,3 +15,15 @@ export const getWinner = (game) => {
     const winner = game.players.find(player => player.life >= 1)
     return winner
 }
+
+export const existsGameRunning = () => {
+    return localStorage.getItem('gameId')
+}
+
+export const setGameInStorage = (gameId) => {
+    localStorage.setItem('gameId', gameId)
+}
+
+export const clearGameInStorage = () =>[
+    localStorage.removeItem('gameId')
+]

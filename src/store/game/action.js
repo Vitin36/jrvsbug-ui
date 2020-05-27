@@ -7,7 +7,8 @@ export const types = {
     GAME_MESSAGE_STARTED_GAME: 'GAME_MESSAGE_STARTED_GAME',
     GAME_MESSAGE_PLAYER_MOVIMENT_FINISHED: 'GAME_MESSAGE_PLAYER_MOVIMENT_FINISHED',
     GAME_MESSAGE_CPU_MOVIMENT_FINISHED: 'GAME_MESSAGE_CPU_MOVIMENT_FINISHED',
-    GAME_RESET_GAME: 'GAME_RESET_GAME'
+    GAME_RESET_GAME: 'GAME_RESET_GAME',
+    GAME_FIND_GAME: 'GAME_FIND_GAME',
 }
 
 export const actions = {
@@ -19,7 +20,8 @@ export const actions = {
     startedGame: game => ({ type: types.GAME_MESSAGE_STARTED_GAME, game }),
     playerMovimentFinished: game => ({ type: types.GAME_MESSAGE_PLAYER_MOVIMENT_FINISHED, game }),
     cpuMovimentFinished: game => ({ type: types.GAME_MESSAGE_CPU_MOVIMENT_FINISHED, game }),
-    resetGame: () => ({ type: types.GAME_RESET_GAME })
+    resetGame: () => ({ type: types.GAME_RESET_GAME }),
+    findGame: gameId => ({ type: types.GAME_FIND_GAME, gameId })
 }
 
 export default actions;
