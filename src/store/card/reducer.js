@@ -6,7 +6,8 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) => {
     const switchTypes = {
-        [types.SET_SELECTED_CARD]: (state, { selectedCard }) => ({ ...state, selectedCard })
+        [types.SET_SELECTED_CARD]: (state, { selectedCard }) => ({ ...state, selectedCard }),
+        [types.RESET_CARD]: () => INITIAL_STATE
     }[action.type]
     return switchTypes ? switchTypes(state, action) : state
 }

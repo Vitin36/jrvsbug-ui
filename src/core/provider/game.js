@@ -1,4 +1,4 @@
-import BaseApi from './base'
+import BaseApi from './api'
 
 const GameProvider = {
     startGame: (player) => {

@@ -17,12 +17,6 @@
       "provider/*": [
         "src/core/provider/*"
       ],
-      "container": [
-        "src/container"
-      ],
-      "container/*": [
-        "src/container/*"
-      ],
       "components": [
         "src/core/components"
       ],
@@ -34,6 +28,18 @@
       ],
       "constants/*": [
         "src/core/constants/*"
+      ],
+      "interactor": [
+        "src/core/interactor"
+      ],
+      "interactor/*": [
+        "src/core/interactor/*"
+      ],
+      "container": [
+        "src/container"
+      ],
+      "container/*": [
+        "src/container/*"
       ],
       "state": [
         "src/state"

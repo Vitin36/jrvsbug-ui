@@ -30,6 +30,7 @@ module.exports = {
       state: path.resolve(__dirname, './src/state'),
       core: path.resolve(__dirname, './src/core'),
       provider: path.resolve(__dirname, './src/core/provider'),
+      interactor: path.resolve(__dirname, './src/core/interactor'),
       store: path.resolve(__dirname, './src/store'),
       container: path.resolve(__dirname, './src/container'),
       // stub: path.resolve(__dirname, './stub'),

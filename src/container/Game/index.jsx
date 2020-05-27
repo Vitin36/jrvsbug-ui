@@ -7,6 +7,7 @@ import RoundedButton from "components/RoundedButton"
 import Header from "./Header"
 import CardList from "./CardList"
 import Footer from "./Footer"
+import Finished from './Finished'
 
 import { headerHeight } from "constants/utils"
 
@@ -69,6 +70,10 @@ const Game = () => {
                     </Main>
                     <Footer />
                 </div>
+            )}
+
+            {ended && (
+                <Finished game={game} currentPlayer={currentPlayer} />
             )}
         </div>
     )

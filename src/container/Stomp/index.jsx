@@ -31,6 +31,9 @@ const WebSocket = () => {
             webSoc.subscribe(route.url, (msg) => { 
                 dispatch(actions.receivedMessage(msg.body, route.action)) 
             });
+            webSoc.subscribe('/topic/erros', (msg) =>{
+                console.log(JSON.parse(msg.body))
+            })
         });
     }
 

@@ -10,7 +10,8 @@ const reducer = (state = INITIAL_STATE, action) => {
     const swithTypes = {
         [types.INFORMATION_SET_MESSAGE]: (state, { message }) => ({ ...state, message }),
         [types.INFORMATION_SET_VISIBLE]: (state, { visible }) => ({ ...state, visible }),
-        [types.INFORMATION_SET_COLOR]: (state, { color }) => ({ ...state, color })
+        [types.INFORMATION_SET_COLOR]: (state, { color }) => ({ ...state, color }),
+        [types.RESET_INFORMATION]: () => INITIAL_STATE
     }[action.type]
     return swithTypes ? swithTypes(state, action) : state
 }

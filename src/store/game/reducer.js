@@ -1,4 +1,5 @@
 import { types } from './action'
+import { getCurrentPlayer, canMakeMoviment, gameFinished } from 'interactor/game'
 
 const INITIAL_STATE = {
     started: false,
@@ -13,17 +14,9 @@ const INITIAL_STATE = {
     playerName: ''
 }
 
-const getCurrentPlayer = (game) => {
-    return game.players.find(player => player.playerType === 'PLAYER')
-}
-
-const canMakeMoviment = ({ currentPlayer, game }) => {
-    const { indexPlayerTurn } = game
-    return game.players[indexPlayerTurn].id == currentPlayer.id
-}
-
 const reducer = (state = INITIAL_STATE, action) => {
     const swithTypes = {
+        [types.GAME_RESET_GAME]: () => INITIAL_STATE,
         [types.GAME_LOAD_GAME]: (state) => ({ ...state, ola: true }),
         [types.GAME_START_GAME]: (state) => ({ ...state, ola: true }),
         [types.GAME_SET_PLAYER_NAME]: (state, { name }) => {
@@ -48,6 +41,7 @@ const reducer = (state = INITIAL_STATE, action) => {
                 started: true,
                 currentPlayer,
                 canMakeMoviment: canMakeMoviment({ currentPlayer, game }),
+                ended: gameFinished(game)
             }
         },
     }[action.type]
