@@ -1,4 +1,4 @@
-import { put, takeLatest, delay, all, call, take } from 'redux-saga/effects'
+import { put, takeLatest, takeEvery, delay, all, call, select } from 'redux-saga/effects'
 import { actions, types } from './action'
 import { actions as informationActions } from 'store/information/action'
 import { actions as cardActions } from 'store/card/action'
@@ -25,23 +25,33 @@ export function* makeMoviment({ payload }) {
 }
 
 export function* playerMovimentFinished({ game }) {
-    yield put(actions.updateGame(game))
-    yield put(cardActions.setSelectedCard({}))
-    if (!gameFinished(game)) {
-        yield put(informationActions.show("Cpu Turn"))
+    const { game: { id } } = yield select((state) => state.game)
+    if (id == game.id) {
+        yield put(actions.updateGame(game))
+        yield put(cardActions.setSelectedCard({}))
+        if (!gameFinished(game)) {
+            yield put(informationActions.show("Cpu Turn"))
+        }
     }
 }
 
 export function* cpuMovimentFinished({ game }) {
-    yield delay(3000)
-    yield put(actions.updateGame(game))
-    if (!gameFinished(game)) {
-        yield put(informationActions.show("Your Turn"))
+    const { game: { id } } = yield select((state) => state.game)
+    if (id == game.id) {
+        yield delay(3000)
+        yield put(actions.updateGame(game))
+        if (!gameFinished(game)) {
+            yield put(informationActions.show("Your Turn"))
+        }
     }
 }
 
-export function* startedGame() {
-    yield put(informationActions.show("Your Turn"))
+export function* startedGame({ game }) {
+    const { game: { id } } = yield select((state) => state.game)
+    if (!id) {
+        yield put(actions.updateGame(game))
+        yield put(informationActions.show("Your Turn"))
+    }
 }
 
 export function* resetGame() {
@@ -51,11 +61,11 @@ export function* resetGame() {
 
 export default function* root() {
     yield all([
-        takeLatest(types.GAME_START_GAME, startGame),
-        takeLatest(types.GAME_MESSAGE_STARTED_GAME, startedGame),
-        takeLatest(types.GAME_MAKE_MOVIMENT, makeMoviment),
-        takeLatest(types.GAME_MESSAGE_PLAYER_MOVIMENT_FINISHED, playerMovimentFinished),
-        takeLatest(types.GAME_MESSAGE_CPU_MOVIMENT_FINISHED, cpuMovimentFinished),
-        takeLatest(types.GAME_RESET_GAME, resetGame)
+        takeEvery(types.GAME_START_GAME, startGame),
+        takeEvery(types.GAME_MAKE_MOVIMENT, makeMoviment),
+        takeEvery(types.GAME_RESET_GAME, resetGame),
+        takeEvery(types.GAME_MESSAGE_STARTED_GAME, startedGame),
+        takeEvery(types.GAME_MESSAGE_PLAYER_MOVIMENT_FINISHED, playerMovimentFinished),
+        takeEvery(types.GAME_MESSAGE_CPU_MOVIMENT_FINISHED, cpuMovimentFinished),
     ])
 }

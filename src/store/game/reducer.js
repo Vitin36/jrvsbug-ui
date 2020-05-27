@@ -23,16 +23,6 @@ const reducer = (state = INITIAL_STATE, action) => {
             const { currentPlayer } = state
             return { ...state, currentPlayer: { ...currentPlayer, name } }
         },
-        [types.GAME_MESSAGE_STARTED_GAME]: (state, { game }) => {
-            const currentPlayer = getCurrentPlayer(game)
-            return {
-                ...state,
-                game,
-                started: true,
-                currentPlayer,
-                canMakeMoviment: canMakeMoviment({ currentPlayer, game }),
-            }
-        },
         [types.GAME_UPDATE_GAME]: (state, { game }) => {
             const currentPlayer = getCurrentPlayer(game)
             return {
