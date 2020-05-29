@@ -4,7 +4,7 @@ import styled from "styled-components"
 import actions from 'store/game/action'
 import { existsGameRunning } from 'interactor/game'
 
-import { RoundedButton } from "components"
+import { Button, InputField } from "components"
 import Header from "./Header"
 import CardList from "./CardList"
 import Footer from "./Footer"
@@ -62,23 +62,21 @@ const Game = () => {
         <div>
             {!started && (
                 <StartGame>
-                    <Name
+                    <InputField
+                        label="Your Name"
                         placeholder="Write your name to Start a new Game"
                         value={name}
                         onChange={handleNameChange} />
                     <div className="d-row">
-                        <RoundedButton
-                            fontSize="1.15em"
+                        <Button
                             text="Start Game"
-                            color="green"
-                            size="extraBig"
+                            size="large"
                             onClick={handleStartGame} />
                         {gameId && (
-                            <RoundedButton
-                                fontSize="1.15em"
+                            <Button
                                 text="Load Previous Game"
-                                color="blue"
-                                size="extraBig"
+                                color="secondary"
+                                size="large"
                                 onClick={handleReloadGame} />
                         )}
                     </div>

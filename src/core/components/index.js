@@ -15,6 +15,8 @@ import {
     SquareText as SquareTextComponent,
     Square as SquareComponent
 } from './Header'
+import ButtonComponent from './Button'
+import InputFieldComponent from './InputField'
 
 export const ActionBar = ActionBarComponent
 export const BigMessage = BigMessageComponent
@@ -31,3 +33,5 @@ export const SquareVS = SquareVSComponent
 export const SquareBlock = SquareBlockComponent
 export const SquareText = SquareTextComponent
 export const Square = SquareComponent
+export const Button = ButtonComponent
+export const InputField = InputFieldComponent
