@@ -4,7 +4,7 @@ import styled from "styled-components"
 import actions from 'store/game/action'
 import { existsGameRunning } from 'interactor/game'
 
-import RoundedButton from "components/RoundedButton"
+import { RoundedButton } from "components"
 import Header from "./Header"
 import CardList from "./CardList"
 import Footer from "./Footer"

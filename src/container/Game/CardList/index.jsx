@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from "styled-components"
 import actions from 'store/card/action'
 
-import Card from "components/Card"
+import { Card } from "components"
 
 const CardListStyled = styled.div`
     display: flex;

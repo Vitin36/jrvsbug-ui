@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import BigMessage from 'components/BigMessage'
+import { BigMessage } from 'components'
 
 function Information() {
     const { color, message, visible } = useSelector(store => store.information)

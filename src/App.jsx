@@ -2,9 +2,7 @@ import React from "react"
 import { Provider } from "react-redux"
 import store from 'store'
 
-import Game from "container/Game"
-import Stomp from "container/Stomp"
-import Information from "container/Information"
+import { Game, Stomp, Information } from "container"
 
 const App = () => {
 

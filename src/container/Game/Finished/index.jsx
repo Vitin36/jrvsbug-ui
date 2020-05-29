@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import actions from 'store/game/action'
 import { getWinner } from 'interactor/game'
 
-import RoundedButton from 'components/RoundedButton'
+import { RoundedButton } from 'components'
 
 const Background = styled.div`
     position: fixed;

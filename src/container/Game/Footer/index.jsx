@@ -2,14 +2,14 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import actions from 'store/game/action'
 
-import ActionBar from "components/ActionBar";
+import { ActionBar } from "components";
 
 const Footer = ({ disabled }) => {
     const { selectedCard, currentPlayer, game, canMakeMoviment } = useSelector(store => ({ ...store.card, ...store.game }))
     const dispatch = useDispatch()
 
     const onUse = () => {
-        if(selectedCard && selectedCard.id){
+        if (selectedCard && selectedCard.id) {
             dispatch(actions.makeMoviment({
                 cardId: selectedCard.id,
                 gameId: game.id,

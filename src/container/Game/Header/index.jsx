@@ -1,7 +1,6 @@
 import React from "react"
 
-import { HeaderStyled, HeaderLeftPosition, HeaderRightPosition, Square } from "components/Header"
-import Player from "components/Player"
+import { HeaderStyled, HeaderLeftPosition, HeaderRightPosition, Square, Player } from "components"
 
 const Header = ({ player1, player2 }) => {
     return (
