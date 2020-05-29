@@ -1,0 +1,1 @@
+export const calcBarSize = mana => (100 * mana) / 20

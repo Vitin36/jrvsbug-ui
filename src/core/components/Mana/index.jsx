@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import GreyBar from "components/GreyBar"
-import { calcBarSize } from "constants/utils"
+import { calcBarSize } from "helper/sizes"
 
 
 const BlueBar = styled.div`

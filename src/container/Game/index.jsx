@@ -10,7 +10,7 @@ import CardList from "./CardList"
 import Footer from "./Footer"
 import Finished from './Finished'
 
-import { headerHeight } from "constants/utils"
+import { headerHeight } from "constants/sizes"
 
 const Main = styled.main`
     padding-top: ${headerHeight * 2}px;

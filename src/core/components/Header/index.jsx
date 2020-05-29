@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { headerHeight } from "constants/utils"
+import { headerHeight } from "constants/sizes"
 
 export const HeaderStyled = styled.header`
     display: flex;

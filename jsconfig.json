@@ -29,6 +29,12 @@
       "constants/*": [
         "src/core/constants/*"
       ],
+      "helper": [
+        "src/core/helper"
+      ],
+      "helper/*": [
+        "src/core/helper/*"
+      ],
       "interactor": [
         "src/core/interactor"
       ],
